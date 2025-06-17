@@ -1,103 +1,72 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="bg-gradient-to-b from-purple-950 via-violet-900 to-black text-white min-h-screen">
+      {/* Navbar */}
+      <header className="flex justify-between items-center px-6 py-4 border-b border-violet-700">
+        <h1 className="text-2xl font-bold text-violet-300">Candle Web</h1>
+        <nav className="space-x-6 text-sm md:text-base">
+          <a href="#" className="hover:text-violet-400">Home</a>
+          <a href="#platforms" className="hover:text-violet-400">Platforms</a>
+          <a href="#features" className="hover:text-violet-400">Features</a>
+          <a href="#contact" className="hover:text-violet-400">Contact</a>
+        </nav>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero */}
+      <section className="text-center py-20 px-4">
+        <h2 className="text-4xl font-extrabold mb-4 text-violet-300">Modern Web Platforms. Built for Scale.</h2>
+        <p className="text-lg mb-6 max-w-xl mx-auto text-gray-300">
+          Candle&apos;s next-gen web portals and SaaS solutions power businesses, education, and innovation.
+        </p>
+        <a href="#platforms" className="bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-full font-semibold transition">Explore Web</a>
+      </section>
+
+      {/* Featured Platforms */}
+      <section id="platforms" className="py-16 px-6">
+        <h3 className="text-3xl font-bold text-center mb-10 text-violet-200">Live Platforms</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            { name: "Candle Play Store", desc: "Games, apps, and digital tools under one premium storefront." },
+            { name: "Thinko Web", desc: "Interactive education platform for class 1 to 12." },
+            { name: "Client Dashboards", desc: "Custom admin panels for B2B client projects." },
+            { name: "Subscription Portals", desc: "SaaS billing and access-based content delivery systems." },
+            { name: "Candle Console", desc: "Admin control panel for your entire Candle ecosystem." },
+            { name: "Hiring Dashboard", desc: "Track, hire, and manage developers & interns efficiently." },
+          ].map((site) => (
+            <div key={site.name} className="bg-purple-900 p-6 rounded-xl shadow hover:shadow-xl transition border border-violet-700">
+              <div className="h-32 bg-violet-600 rounded mb-4 flex items-center justify-center text-xl font-bold text-white">
+                {site.name}
+              </div>
+              <p className="text-sm text-gray-300">{site.desc}</p>
+            </div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Features */}
+      <section id="features" className="bg-purple-900 py-16 px-6 border-t border-purple-800">
+        <h3 className="text-3xl font-bold text-center mb-10 text-violet-200">Why Choose Candle Web?</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto text-center">
+          <div>
+            <h4 className="text-xl font-semibold mb-2">⚙️ Fully Customizable</h4>
+            <p className="text-gray-300">Tailored for your business needs — from APIs to dashboards.</p>
+          </div>
+          <div>
+            <h4 className="text-xl font-semibold mb-2">🚀 Blazing Fast</h4>
+            <p className="text-gray-300">Built using modern stacks like Next.js, Vercel, MongoDB, and AWS.</p>
+          </div>
+          <div>
+            <h4 className="text-xl font-semibold mb-2">📊 Scalable & Secure</h4>
+            <p className="text-gray-300">From MVP to enterprise-grade web platforms with top-tier security.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black text-white text-center py-6 border-t border-violet-800">
+        <p>&copy; {new Date().getFullYear()} Candle Software Pvt Ltd. All rights reserved.</p>
+        <p className="text-sm">web.candlesoftware.org</p>
       </footer>
-    </div>
+    </main>
   );
 }
